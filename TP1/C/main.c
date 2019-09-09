@@ -12,7 +12,9 @@ int main(int argc, char ** argv){
   // Analyse du temps pris par les opérations.
   analyzer_t * time_analysis = analyzer_create();
   // Analyse du nombre de copies faites par les opérations.
-  analyzer_t * copy_analysis = analyzer_create(); 
+  analyzer_t * copy_analysis = analyzer_create();
+  // Analyse de l'espace mémoire inutilisé.
+  analyzer_t * memory_analysis = analyzer_create(); 
   struct timespec before, after;
   // utilisé comme booléen pour savoir si une allocation a été effectuée.
   char memory_allocation; 
@@ -28,6 +30,8 @@ int main(int argc, char ** argv){
     // Enregistrement du nombre de copies efféctuées par l'opération.
     // S'il y a eu réallocation de mémoire, il a fallu recopier tout le tableau.
     analyzer_append(copy_analysis, (memory_allocation)? i:1 );
+    // Enregistrement de l'espace mémoire non-utilisé.
+    analyzer_append(memory_analysis,arraylist_capacity(a)-arraylist_size(a));
   }
 
   // Affichage de quelques statistiques sur l'expérience.
@@ -36,13 +40,15 @@ int main(int argc, char ** argv){
   fprintf(stderr, "Variance: %lf\n", get_variance(time_analysis));
   fprintf(stderr, "Standard deviation: %lf\n", get_standard_deviation(time_analysis));
 
-  // Sauvegarde les données de l'expérience: temps et nombre de copies effectuées par opération.
+  // Sauvegarde les données de l'expérience.
   save_values(time_analysis, "../dynamic_array_time_c.plot");
   save_values(copy_analysis, "../dynamic_array_copy_c.plot");
+  save_values(memory_analysis, "../dynamic_array_memory_c.plot");
 
   // Nettoyage de la mémoire avant la sortie du programme
   arraylist_destroy(a);
   analyzer_destroy(time_analysis);
   analyzer_destroy(copy_analysis);
+  analyzer_destroy(memory_analysis);
   return EXIT_SUCCESS;
 }

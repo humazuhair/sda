@@ -71,8 +71,15 @@ public:
      Complexité en temps/espace, pire cas : O(1)
      @returns le nombre d'éléments stockés dans le tableau.
   */
-  const size_t get_size(){ return data.size(); }
+  const size_t size(){ return data.size(); }
 
+  /**
+     Renvoie la capacité de stockage du tableau.
+     Complexité en temps/espace, pire cas : O(1)
+     @returns le nombre d'éléments stockés dans le tableau.
+  */
+  const size_t capacity(){ return data.capacity(); }
+  
 private:
   // Vecteur contenant les données.
   std::vector<P> data;

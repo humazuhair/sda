@@ -51,8 +51,12 @@ int arraylist_get(arraylist_t * a, int pos){
   return -1;
 }
 
-size_t arraylist_get_size(arraylist_t * a){
+size_t arraylist_size(arraylist_t * a){
   return ( a!=NULL) ? a->size : -1;
+}
+
+size_t arraylist_capacity(arraylist_t * a){
+  return ( a!=NULL) ? a->capacity : -1;
 }
 
 char arraylist_do_we_need_to_enlarge_capacity(arraylist_t * a){

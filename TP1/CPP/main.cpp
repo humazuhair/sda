@@ -13,6 +13,8 @@ int main(int argc, char ** argv){
   Analyzer time_analysis;
   // Analyse du nombre de copies faites par les opérations.
   Analyzer copy_analysis;
+  // Analyse de l'espace mémoire inutilisé.
+  Analyzer memory_analysis;
   struct timespec before, after;
   // Booléen permettant de savoir si une allocation a été effectuée.
   bool memory_allocation;
@@ -28,6 +30,8 @@ int main(int argc, char ** argv){
     // Enregistrement du nombre de copies efféctuées par l'opération.
     // S'il y a eu réallocation de mémoire, il a fallu recopier tout le tableau.
     copy_analysis.append( (memory_allocation)? i:1 );
+    // Enregistrement de l'espace mémoire non-utilisé.
+    memory_analysis.append( a.capacity() - a.size() );
   }
 
   // Affichage de quelques statistiques sur l'expérience.
@@ -36,9 +40,10 @@ int main(int argc, char ** argv){
   std::cerr<<"Variance :"<<time_analysis.get_variance()<<std::endl;
   std::cerr<<"Standard deviation :"<<time_analysis.get_standard_deviation()<<std::endl;    
 
-  // Sauvegarde les données de l'expérience: temps et nombre de copies effectuées par opération.
+  // Sauvegarde les données de l'expérience.
   time_analysis.save_values("../dynamic_array_time_cpp.plot");
   copy_analysis.save_values("../dynamic_array_copy_cpp.plot");
+  memory_analysis.save_values("../dynamic_array_memory_cpp.plot");
   
   return 0;
 }

@@ -70,7 +70,15 @@ int arraylist_get(arraylist_t * a, int pos);
    @param a est un pointeur vers un tableau.
    @returns le nombre d'éléments stockés dans le tableau.
  */
-size_t arraylist_get_size(arraylist_t * a);
+size_t arraylist_size(arraylist_t * a);
+
+/**
+   Renvoie la capacité de stockage du tableau.
+   Complexité en temps/espace, pire cas : O(1)
+   @param a est un pointeur vers un tableau.
+   @returns la capacité de stockage du tableau.
+ */
+size_t arraylist_capacity(arraylist_t * a);
 
 /**
    Cette fonction détermine la règle selon laquelle un espace mémoire plus grand sera alloué ou non.

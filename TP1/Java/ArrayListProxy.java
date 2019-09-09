@@ -67,10 +67,19 @@ public class ArrayListProxy<T> {
      Complexité en temps/espace, pire cas : O(1)
      @returns le nombre d'éléments stockés dans le tableau.
      */
-    int get_size(){
+    int size(){
         return data.size();
     }
 
+    /**
+     Renvoie la capacité de stockage du tableau.
+     Complexité en temps/espace, pire cas : O(1)
+     @returns le nombre d'éléments stockés dans le tableau.
+    */
+    int capacity(){
+        return capacity;
+    }
+    
     /**
      Cette fonction détermine la règle selon laquelle un espace mémoire plus grand sera alloué ou non.
      @returns true si le tableau doit être agrandi, false sinon.
