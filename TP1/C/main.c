@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include <time.h>
+#include<stdlib.h>
+#include "arraylist.h"
+#include "analyzer.h"
+
+
+int main(int argc, char ** argv){
+  int i;
+  // Tableau dynamique.
+  arraylist_t * a = arraylist_create();
+  // Analyse du temps pris par les opérations.
+  analyzer_t * time_analysis = analyzer_create();
+  // Analyse du nombre de copies faites par les opérations.
+  analyzer_t * copy_analysis = analyzer_create(); 
+  struct timespec before, after;
+  // utilisé comme booléen pour savoir si une allocation a été effectuée.
+  char memory_allocation; 
+
+  for(i = 0; i < 1000000 ; i++){
+    // Ajout d'un élément et mesure du temps pris par l'opération.
+    timespec_get(&before, TIME_UTC);
+    memory_allocation = arraylist_append(a, i);
+    timespec_get(&after, TIME_UTC);
+    
+    // Enregistrement du temps pris par l'opération
+    analyzer_append(time_analysis, after.tv_nsec - before.tv_nsec);
+    // Enregistrement du nombre de copies efféctuées par l'opération.
+    // S'il y a eu réallocation de mémoire, il a fallu recopier tout le tableau.
+    analyzer_append(copy_analysis, (memory_allocation)? i:1 );
+  }
+
+  // Affichage de quelques statistiques sur l'expérience.
+  fprintf(stderr, "Total cost: %lf\n", get_total_cost(time_analysis));
+  fprintf(stderr, "Average cost: %lf\n", get_average_cost(time_analysis));
+  fprintf(stderr, "Variance: %lf\n", get_variance(time_analysis));
+  fprintf(stderr, "Standard deviation: %lf\n", get_standard_deviation(time_analysis));
+
+  // Sauvegarde les données de l'expérience: temps et nombre de copies effectuées par opération.
+  save_values(time_analysis, "../dynamic_array_time_c.plot");
+  save_values(copy_analysis, "../dynamic_array_copy_c.plot");
+
+  // Nettoyage de la mémoire avant la sortie du programme
+  arraylist_destroy(a);
+  analyzer_destroy(time_analysis);
+  analyzer_destroy(copy_analysis);
+  return EXIT_SUCCESS;
+}
