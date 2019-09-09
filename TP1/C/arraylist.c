@@ -21,10 +21,9 @@ void arraylist_destroy(arraylist_t * a){
 char arraylist_append(arraylist_t * a, int x){
   char memory_allocation = FALSE;
   if( a!=NULL ){
-    if( arraylist_enlarging_capacity(a) ){
+    if( arraylist_do_we_need_to_enlarge_capacity(a) ){
       memory_allocation = TRUE;
-      a->capacity *= 2;
-      a->data = (int *) realloc(a->data, sizeof(int) * a->capacity);
+      arraylist_enlarge_capacity(a);
     }
     a->data[a->size++] = x;
   }
@@ -34,10 +33,9 @@ char arraylist_append(arraylist_t * a, int x){
 char arraylist_pop_back(arraylist_t * a){
   char memory_reduction = FALSE;
   if( a!=NULL && a->size>0 ){
-    if( arraylist_reducing_capacity(a) ){
+    if( arraylist_do_we_need_to_reduce_capacity(a) ){
       memory_reduction = TRUE;
-      a->capacity /= 2; 
-      a->data = (int *) realloc(a->data, sizeof(int) * a->capacity);
+      arraylist_reduce_capacity(a);
     }
     a->size--;
   }
@@ -57,10 +55,20 @@ size_t arraylist_get_size(arraylist_t * a){
   return ( a!=NULL) ? a->size : -1;
 }
 
-char arraylist_enlarging_capacity(arraylist_t * a){
+char arraylist_do_we_need_to_enlarge_capacity(arraylist_t * a){
   return ( a->size >= (a->capacity * 3)/4 )? TRUE: FALSE;
 }
 
-char arraylist_reducing_capacity(arraylist_t * a){
+void arraylist_enlarge_capacity(arraylist_t * a){
+  a->capacity *= 2;
+  a->data = (int *) realloc(a->data, sizeof(int) * a->capacity);
+}
+
+char arraylist_do_we_need_to_reduce_capacity(arraylist_t * a){
   return ( a->size <= a->capacity/4 && a->size >4 )? TRUE: FALSE;
+}
+
+void arraylist_reduce_capacity(arraylist_t * a){
+  a->capacity /= 2; 
+  a->data = (int *) realloc(a->data, sizeof(int) * a->capacity);
 }

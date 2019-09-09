@@ -1,5 +1,5 @@
 CC= gcc
-CXXFLAGS= -Wall -ansi --pedantic 
+CXXFLAGS= -Wall -ansi --pedantic -O3
 
 CPP_O_FILE = arraylist.o analyzer.o main.o
 LIB = -lm

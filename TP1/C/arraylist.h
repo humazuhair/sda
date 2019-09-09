@@ -77,14 +77,27 @@ size_t arraylist_get_size(arraylist_t * a);
    @param a est un pointeur vers un tableau.
    @returns VRAI si le tableau doit être agrandi, FAUX sinon.
 */
-char arraylist_enlarging_capacity(arraylist_t * a);
+char arraylist_do_we_need_to_enlarge_capacity(arraylist_t * a);
+
+/**
+   Cette fonction augmente la capacité du tableau.
+   @param a est un pointeur vers un tableau.
+*/
+void arraylist_enlarge_capacity(arraylist_t * a);
 
 /**
    Cette fonction détermine la règle selon laquelle un espace mémoire plus petit sera alloué ou non.
    @param a est un pointeur vers un tableau.
    @returns VRAI si le tableau doit être réduit, FAUX sinon.
 */
-char arraylist_reducing_capacity(arraylist_t * a);
+char arraylist_do_we_need_to_reduce_capacity(arraylist_t * a);
+
+/**
+   Cette fonction réduit la capacité du tableau.
+   @param a est un pointeur vers un tableau.
+*/
+void arraylist_reduce_capacity(arraylist_t * a);
+
 
 #endif
  
