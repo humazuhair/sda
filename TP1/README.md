@@ -41,12 +41,12 @@ python main.py
 cd ..
 
 # Observation des résultats
-# Dans le répertoire courant, lisez le contenu du fichier plot_result
+### Dans le répertoire courant, lisez le contenu du fichier plot_result
 
 more plot_result
 
-# puis lancez gnuplot
+### puis lancez gnuplot
 
 gnuplot
 
-# puis copiez le contenu du fichier plot_result dans gnuplot
+### puis copiez le contenu du fichier plot_result dans gnuplot
