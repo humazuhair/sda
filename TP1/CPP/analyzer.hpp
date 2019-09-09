@@ -4,7 +4,6 @@
 #include<cmath>
 #include <vector>
 #include <iostream>
-#include <fstream>
 
 /**
    Classe utilisée pour faire des statistiques élémentaires
@@ -25,11 +24,7 @@ public:
      Complexité amortie : O(1)
      @param x est la valeur que l'on souhaite ajouter à l'analyse.
   */
-  void append(const double & x){
-    cost.push_back(x);    
-    cumulative_cost.push_back( (cumulative_cost.size()) ? cumulative_cost.back()+x : x);
-    cumulative_square += x*x;
-  }
+  void append(const double & x);
 
   /**
      Renvoie la somme des coûts enregistrés dans cette analyse.
@@ -55,23 +50,14 @@ public:
      Complexité en temps/espace, meilleur cas : O(1)
      @returns la moyenne des coûts de toutes les opérations enregistrées dans l'analyse.
   */
-  double get_average_cost(){
-    if(cumulative_cost.empty())
-      throw std::runtime_error("List is empty");
-    return cumulative_cost.back()/cumulative_cost.size();
-  }
+  double get_average_cost();
 
   /**
      Renvoie la variance des coûts de toutes les opérations enregistrées dans l'analyse.
      Complexité en temps/espace, meilleur cas : O(1)
      @returns la variance des coûts de toutes les opérations enregistrées dans l'analyse.
   */
-  double get_variance(){
-    double mean, mean_square;
-    mean = get_average_cost();
-    mean_square = mean * mean;
-    return cumulative_square - mean_square;
-  }
+  double get_variance();
 
   /**
      Renvoie l'écart-type des coûts de toutes les opérations enregistrées dans l'analyse.
@@ -87,24 +73,12 @@ public:
      Complexité en temps, meilleur/pire cas : O(size)
      @param path est le chemin du fichier dans lequel la sauvegarde est faite.
   */
-  void save_values(const std::string & path){
-    std::ofstream f;
-    size_t i;
-    f.open(path.c_str());
-    for (i = 0; i < cost.size(); ++i)
-      f<<i<<" "<<cost.at(i)<<" "<<get_amortized_cost(i)<<std::endl;
-    f.close();
-  }
-  
+  void save_values(const std::string & path);
   /**
      Affiche la liste des coûts et des coûts amortis sur la sortie standard.
      Complexité en temps, meilleur/pire cas : O(size)
   */
-  void plot_values(){
-    size_t i;
-    for (i = 0; i < cost.size(); ++i)
-      std::cout<<i<<" "<<cost.at(i)<<" "<<get_amortized_cost(i)<<std::endl;
-  }
+  void plot_values();
 
 private:
   // Coût de chaque opération. Peut représenter du temps ou une autre mesure.

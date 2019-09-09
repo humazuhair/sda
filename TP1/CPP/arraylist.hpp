@@ -62,7 +62,9 @@ public:
      @param pos est la l'indice de la case on l'utilisateur veut connaître la valeur.
      @returns la valeur située à la position donnée par l'utilisateur.
   */
-  P get(const int & pos);
+  P get(const int & pos){
+    return data[pos];
+  }
 
   /**
      Renvoie le nombre d'éléments stockés dans le tableau.
