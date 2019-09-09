@@ -49,4 +49,4 @@ more plot_result
 
 gnuplot
 
-### puis copiez le contenu du fichier plot_result dans gnuplot
+### puis copiez le contenu du fichier plot_result dans gnuplot (3 lignes, une par une)
