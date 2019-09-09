@@ -29,9 +29,9 @@ public:
   */
   bool append(P x){
     bool memory_allocation = false;
-    if( enlarging_capacity() ){
+    if( do_we_need_to_enlarge_capacity() ){
       memory_allocation = true;
-      data.reserve( data.capacity() *2 );
+      enlarge_capacity();
     }
     data.push_back(x);
     return memory_allocation;
@@ -47,9 +47,9 @@ public:
   bool pop_back(){
     bool memory_reduction = false;
     if(!data.empty()){
-      if( reducing_capacity() ){
+      if( do_we_need_to_reduce_capacity() ){
 	memory_reduction = true;
-	data.reserve( data.capacity() /2 );
+	reduce_capacity();
       }
       data.pop_back();
     }
@@ -81,16 +81,30 @@ private:
      Cette fonction détermine la règle selon laquelle un espace mémoire plus grand sera alloué ou non.
      @returns true si le tableau doit être agrandi, false sinon.
   */
-  bool enlarging_capacity(){
+  bool do_we_need_to_enlarge_capacity(){
     return data.size() >= (data.capacity() * 3)/4;
+  }
+
+  /**
+     Cette fonction augmente la capacité du tableau.
+  */
+  void enlarge_capacity(){
+    data.reserve( data.capacity() *2 );
   }
 
   /**
      Cette fonction détermine la règle selon laquelle un espace mémoire plus petit sera alloué ou non.
      @returns true si le tableau doit être réduit, false sinon.
   */
-  bool reducing_capacity(){
+  bool do_we_need_to_reduce_capacity(){
     return data.size() <= data.capacity()/4 && data.size() >4;
+  }
+  
+  /**
+     Cette fonction reduit la capacité du tableau.
+  */
+  void reduce_capacity(){
+    data.reserve( data.capacity() /2 );
   }
   
 };
