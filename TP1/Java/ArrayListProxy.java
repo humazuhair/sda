@@ -25,10 +25,9 @@ public class ArrayListProxy<T> {
      */
     boolean append(T x){
         boolean memory_allocation = false;
-        if( enlarging_capacity() ){
+        if( do_we_need_to_enlarge_capacity() ){
             memory_allocation = true;
-            capacity *= 2;
-            data.ensureCapacity( capacity );
+	    enlarge_capacity();
         }
         data.add(x);
         return memory_allocation;
@@ -44,10 +43,9 @@ public class ArrayListProxy<T> {
     boolean pop_back(){
         boolean memory_reduction = false;
         if(!data.isEmpty()){
-            if( reducing_capacity() ){
+            if( do_we_need_to_reduce_capacity() ){
                 memory_reduction = true;
-                capacity /= 2;
-                data.ensureCapacity( capacity );
+		reduce_capacity();
             }
             data.remove(data.size()-1);
         }
@@ -77,18 +75,34 @@ public class ArrayListProxy<T> {
      Cette fonction détermine la règle selon laquelle un espace mémoire plus grand sera alloué ou non.
      @returns true si le tableau doit être agrandi, false sinon.
      */
-    private boolean enlarging_capacity() {
+    private boolean do_we_need_to_enlarge_capacity() {
         return data.size() >= (capacity * 3)/4;
+    }
+
+    /**
+       Cette fonction augmente la capacité du tableau.
+    */
+    private void enlarge_capacity(){
+	capacity *= 2;
+	data.ensureCapacity( capacity );
     }
 
     /**
      Cette fonction détermine la règle selon laquelle un espace mémoire plus petit sera alloué ou non.
      @returns true si le tableau doit être réduit, false sinon.
      */
-    private boolean reducing_capacity(){
+    private boolean do_we_need_to_reduce_capacity(){
         return data.size() <= capacity/4 && data.size() >4;
     }
 
+    /**
+       Cette fonction reduit la capacité du tableau.
+    */
+    void reduce_capacity(){
+	capacity /= 2;
+	data.ensureCapacity( capacity );
+    }
+    
     // Tableau dynamique en Java. Sa capacité réelle est masquée, mais on peut avoir un contrôle dessus.
     private ArrayList<T> data;
     // Capacité réelle du tableau data.
