@@ -17,7 +17,7 @@ class ArrayListProxy:
     def pop_back(self):
         self.data.pop()
 
-    # Renvoie l'element situe à la position 'pos' dans le tableau
+    # Renvoie l'element situe a la position 'pos' dans le tableau
     def get(self, pos):
         return self.data[pos]
 
