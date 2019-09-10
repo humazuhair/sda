@@ -29,7 +29,7 @@ class Analyzer:
 
     # Renvoie le cout amorti d'une operation.
     # Complexite en temps/espace, meilleur cas : O(1)
-    # @param pos est l'indice de l'operation pour laquelle on veut connaître le cout amorti.
+    # @param pos est l'indice de l'operation pour laquelle on veut connaitre le cout amorti.
     # @returns le cout amorti d'une operation.    
     def get_amortized_cost(self, pos):
         return self.cumulative_cost[pos]/pos if pos>0 else self.cumulative_cost[pos] 
