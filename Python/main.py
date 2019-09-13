@@ -23,4 +23,4 @@ sys.stderr.write("Variance :" + str(time_analysis.get_variance())+"\n")
 sys.stderr.write("Standard deviation :" + str(time_analysis.get_standard_deviation())+"\n")
 
 # Sauvegarde les donnees de l'experience.
-time_analysis.save_values("../dynamic_array_time_python.plot")
+time_analysis.save_values("../plots/dynamic_array_time_python.plot")
