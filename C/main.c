@@ -15,6 +15,7 @@ int main(int argc, char ** argv){
   analyzer_t * copy_analysis = analyzer_create();
   // Analyse de l'espace mémoire inutilisé.
   analyzer_t * memory_analysis = analyzer_create(); 
+  // Mesure de la durée d'une opération.
   struct timespec before, after;
   clockid_t clk_id = CLOCK_REALTIME;
   // utilisé comme booléen pour savoir si une allocation a été effectuée.
