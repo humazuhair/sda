@@ -16,14 +16,16 @@ int main(int argc, char ** argv){
   // Analyse de l'espace mémoire inutilisé.
   analyzer_t * memory_analysis = analyzer_create(); 
   struct timespec before, after;
+  clockid_t clk_id = CLOCK_REALTIME;
   // utilisé comme booléen pour savoir si une allocation a été effectuée.
   char memory_allocation; 
 
   for(i = 0; i < 1000000 ; i++){
     // Ajout d'un élément et mesure du temps pris par l'opération.
-    timespec_get(&before, TIME_UTC);
+    clock_gettime(clk_id, &before);
     memory_allocation = arraylist_append(a, i);
-    timespec_get(&after, TIME_UTC);
+    clock_gettime(clk_id, &after);
+
     
     // Enregistrement du temps pris par l'opération
     analyzer_append(time_analysis, after.tv_nsec - before.tv_nsec);
