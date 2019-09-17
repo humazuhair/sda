@@ -1,8 +1,11 @@
 #include<iostream>
-#include<time.h>
+#include <chrono>
 #include<cstdlib>	
 #include "arraylist.hpp"
 #include "analyzer.hpp"
+
+
+using namespace std::chrono;
 
 
 int main(int argc, char ** argv){
@@ -15,18 +18,19 @@ int main(int argc, char ** argv){
   Analyzer copy_analysis;
   // Analyse de l'espace mémoire inutilisé.
   Analyzer memory_analysis;
-  struct timespec before, after;
+  high_resolution_clock::time_point before, after;
   // Booléen permettant de savoir si une allocation a été effectuée.
   bool memory_allocation;
 
   for(i = 0; i < 1000000 ; i++){
     // Ajout d'un élément et mesure du temps pris par l'opération.
-    timespec_get(&before, TIME_UTC);
+    before = high_resolution_clock::now();
     memory_allocation = a.append(i);
-    timespec_get(&after, TIME_UTC);
+    after = high_resolution_clock::now();
 
     // Enregistrement du temps pris par l'opération
-    time_analysis.append(after.tv_nsec - before.tv_nsec);
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(after - before);    
+    time_analysis.append(static_cast<double>(duration.count()));
     // Enregistrement du nombre de copies efféctuées par l'opération.
     // S'il y a eu réallocation de mémoire, il a fallu recopier tout le tableau.
     copy_analysis.append( (memory_allocation)? i:1 );
@@ -47,3 +51,4 @@ int main(int argc, char ** argv){
   
   return 0;
 }
+

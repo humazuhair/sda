@@ -10,3 +10,7 @@ clean:
 	rm -rf *.o
 	rm -rf *~
 	rm -rf arraylist_analysis
+
+
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
