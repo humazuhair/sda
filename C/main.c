@@ -38,10 +38,10 @@ int main(int argc, char ** argv){
   }
 
   // Affichage de quelques statistiques sur l'expérience.
-  fprintf(stderr, "Total cost: %lf\n", get_total_cost(time_analysis));
-  fprintf(stderr, "Average cost: %lf\n", get_average_cost(time_analysis));
-  fprintf(stderr, "Variance: %lf\n", get_variance(time_analysis));
-  fprintf(stderr, "Standard deviation: %lf\n", get_standard_deviation(time_analysis));
+  fprintf(stderr, "Total cost: %Lf\n", get_total_cost(time_analysis));
+  fprintf(stderr, "Average cost: %Lf\n", get_average_cost(time_analysis));
+  fprintf(stderr, "Variance: %Lf\n", get_variance(time_analysis));
+  fprintf(stderr, "Standard deviation: %Lf\n", get_standard_deviation(time_analysis));
 
   // Sauvegarde les données de l'expérience.
   save_values(time_analysis, "../plots/dynamic_array_time_c.plot");

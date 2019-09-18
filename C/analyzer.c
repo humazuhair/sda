@@ -35,25 +35,25 @@ void analyzer_append(analyzer_t * a, double x){
   }
 }
 
-double get_total_cost(analyzer_t * a){
+long double get_total_cost(analyzer_t * a){
   return (a->size) ? a->cumulative_cost[a->size-1] : -1;
 }
 
 
-double get_amortized_cost(analyzer_t * a, size_t pos){
+long double get_amortized_cost(analyzer_t * a, size_t pos){
   if(pos >= 0 && pos < a->size)
     return (pos)? a->cumulative_cost[pos]/pos : a->cumulative_cost[pos];
   return -1;
 }
 
-double get_average_cost(analyzer_t * a){
+long double get_average_cost(analyzer_t * a){
   if(a->size)
     return a->cumulative_cost[a->size - 1]/a->size;
   return -1;
 }
 
-double get_variance(analyzer_t * a){
-  double mean, mean_square;
+long double get_variance(analyzer_t * a){
+  long double mean, mean_square;
   if(a->size){
     mean = get_average_cost(a);
     mean_square = mean * mean;
@@ -62,7 +62,7 @@ double get_variance(analyzer_t * a){
   return -1;
 }
 
-double get_standard_deviation(analyzer_t * a){
+long double get_standard_deviation(analyzer_t * a){
   if(a->size)
     return sqrt(get_variance(a));
   return -1;
@@ -73,7 +73,7 @@ void save_values(analyzer_t * a, char * path){
   int i;
   if( (f = fopen(path, "w")) != NULL ){
     for (i = 0; i < a->size; ++i){
-      fprintf(f,"%d %lf %lf\n", i, a->cost[i], get_amortized_cost(a, i));
+      fprintf(f,"%d %lf %Lf\n", i, a->cost[i], get_amortized_cost(a, i));
     }
   }else{
     fprintf(stderr, "Could not save values in file %s", path);
@@ -83,6 +83,6 @@ void save_values(analyzer_t * a, char * path){
 void plot_values(analyzer_t * a){
   int i;
   for (i = 0; i < a->size; ++i){
-    printf("%d %lf %lf\n", i, a->cost[i], get_amortized_cost(a, i));
+    printf("%d %lf %Lf\n", i, a->cost[i], get_amortized_cost(a, i));
   }
 }
