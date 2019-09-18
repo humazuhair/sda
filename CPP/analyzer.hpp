@@ -31,7 +31,7 @@ public:
      Complexité en temps/espace, meilleur cas : O(1)
      @returns la somme des coûts enregistrés dans cette analyse.
   */
-  double get_total_cost(){
+  long double get_total_cost(){
     return cumulative_cost.back();
   }
 
@@ -41,7 +41,7 @@ public:
      @param pos est l'indice de l'opération pour laquelle on veut connaître le coût amorti.
      @returns le coût amorti d'une opération.
   */
-  double get_amortized_cost(size_t pos){
+  long double get_amortized_cost(size_t pos){
     return (pos)? cumulative_cost.at(pos)/pos : cumulative_cost.at(pos); 
   }
 
@@ -50,21 +50,21 @@ public:
      Complexité en temps/espace, meilleur cas : O(1)
      @returns la moyenne des coûts de toutes les opérations enregistrées dans l'analyse.
   */
-  double get_average_cost();
+  long double get_average_cost();
 
   /**
      Renvoie la variance des coûts de toutes les opérations enregistrées dans l'analyse.
      Complexité en temps/espace, meilleur cas : O(1)
      @returns la variance des coûts de toutes les opérations enregistrées dans l'analyse.
   */
-  double get_variance();
+  long double get_variance();
 
   /**
      Renvoie l'écart-type des coûts de toutes les opérations enregistrées dans l'analyse.
      Complexité en temps/espace, meilleur cas : O(1)
      @returns l'écart-type des coûts de toutes les opérations enregistrées dans l'analyse.
   */
-  double get_standard_deviation(){
+  long double get_standard_deviation(){
     return std::sqrt(get_variance());
   }
 

@@ -8,14 +8,14 @@ void Analyzer::append(const double & x){
   cumulative_square += x*x;
 }
 
-double Analyzer::get_average_cost(){
+long double Analyzer::get_average_cost(){
   if(cumulative_cost.empty())
     throw std::runtime_error("List is empty");
   return cumulative_cost.back()/cumulative_cost.size();
 }
 
-double Analyzer::get_variance(){
-  double mean, mean_square;
+long double Analyzer::get_variance(){
+  long double mean, mean_square;
   mean = get_average_cost();
   mean_square = mean * mean;
   return cumulative_square - mean_square;
