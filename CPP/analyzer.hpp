@@ -85,9 +85,9 @@ private:
   std::vector<double> cost;
   // Coût cumulatif. La case i contient la somme des coûts des i premières opérations.
   // Permet de calculer le coût amorti d'une opération.
-  std::vector<double> cumulative_cost;
+  std::vector<long double> cumulative_cost;
   // Carré du coût cumulatif. Sert à calculer la variance. On ne garde que la dernière valeur.
-  double cumulative_square;
+  long double cumulative_square;
 };
 
 

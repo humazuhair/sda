@@ -1,4 +1,6 @@
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 /**
@@ -13,8 +15,8 @@ public class Analyzer {
      */
     public Analyzer() {
         cost = new ArrayList<Double>();
-        cumulative_cost = new ArrayList<Double>();
-        cumulative_square = 0.;
+        cumulative_cost = new ArrayList<BigDecimal>();
+        cumulative_square = new BigDecimal(0.);
     }
 
     /**
@@ -25,9 +27,11 @@ public class Analyzer {
         @param x est la valeur que l'on souhaite ajouter à l'analyse.
      */
     void append(double  x){
+        BigDecimal x_big = new BigDecimal(x);
         cost.add(x);
-        cumulative_cost.add( (!cumulative_cost.isEmpty()) ? cumulative_cost.get(cumulative_cost.size()-1)+x : x);
-        cumulative_square += x*x;
+        cumulative_cost.add( (!cumulative_cost.isEmpty()) ? cumulative_cost.get(cumulative_cost.size()-1).add(x_big) : x_big);
+	BigDecimal x_square = x_big.multiply(x_big);
+        cumulative_square = cumulative_square.add(x_square);
     }
 
     /**
@@ -35,7 +39,7 @@ public class Analyzer {
         Complexité en temps/espace, meilleur cas : O(1)
         @returns la somme des coûts enregistrés dans cette analyse.
      */
-    double get_total_cost(){
+    BigDecimal get_total_cost(){
         return cumulative_cost.get(cumulative_cost.size()-1);
     }
 
@@ -45,8 +49,8 @@ public class Analyzer {
         @param pos est l'indice de l'opération pour laquelle on veut connaître le coût amorti.
         @returns le coût amorti d'une opération.
      */
-    double get_amortized_cost(int pos){
-        return (pos > 0)? cumulative_cost.get(pos)/pos : cumulative_cost.get(pos);
+    BigDecimal get_amortized_cost(int pos){
+        return (pos > 0)? cumulative_cost.get(pos).divide(new BigDecimal(pos), RoundingMode.HALF_UP) : cumulative_cost.get(pos);
     }
 
     /**
@@ -54,10 +58,10 @@ public class Analyzer {
         Complexité en temps/espace, meilleur cas : O(1)
         @returns la moyenne des coûts de toutes les opérations enregistrées dans l'analyse.
      */
-    double get_average_cost(){
+    BigDecimal get_average_cost(){
         if(cumulative_cost.isEmpty())
             throw new RuntimeException("List is empty");
-        return cumulative_cost.get(cumulative_cost.size()-1)/cumulative_cost.size();
+        return cumulative_cost.get(cumulative_cost.size()-1).divide(new BigDecimal(cumulative_cost.size()));
     }
 
     /**
@@ -65,11 +69,13 @@ public class Analyzer {
         Complexité en temps/espace, meilleur cas : O(1)
         @returns la variance des coûts de toutes les opérations enregistrées dans l'analyse.
      */
-    double get_variance(){
-        double mean, mean_square;
+    BigDecimal get_variance(){
+        BigDecimal mean, mean_square;
         mean = get_average_cost();
-        mean_square = mean * mean;
-        return cumulative_square - mean_square;
+        mean_square = mean.multiply(mean);
+        if(cumulative_square.compareTo(mean_square) < 0)
+            throw new RuntimeException("Error: mean of squares is less than square of mean: "+mean+" "+cumulative_square);
+        return cumulative_square.subtract(mean_square);
     }
 
     /**
@@ -77,8 +83,8 @@ public class Analyzer {
         Complexité en temps/espace, meilleur cas : O(1)
         @returns l'écart-type des coûts de toutes les opérations enregistrées dans l'analyse.
      */
-    double get_standard_deviation(){
-        return Math.sqrt(get_variance());
+    BigDecimal get_standard_deviation(){
+        return new BigDecimal(Math.sqrt(get_variance().doubleValue()));
     }
 
     /**
@@ -124,9 +130,9 @@ public class Analyzer {
     private ArrayList<Double> cost;
     // Coût cumulatif. La case i contient la somme des coûts des i premières opérations.
     // Permet de calculer le coût amorti d'une opération.
-    private ArrayList<Double> cumulative_cost;
+    private ArrayList<BigDecimal> cumulative_cost;
     // Carré du coût cumulatif. Sert à calculer la variance. On ne garde que la dernière valeur.
-    private double cumulative_square;
+    private BigDecimal cumulative_square;
 
 
 }
