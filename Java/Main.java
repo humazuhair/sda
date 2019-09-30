@@ -10,8 +10,8 @@ public class Main {
         Analyzer time_analysis = new Analyzer();
         // Analyse du nombre de copies faites par les opérations.
         Analyzer copy_analysis = new Analyzer();
-	    // Analyse de l'espace mémoire inutilisé.
-	    Analyzer memory_analysis = new Analyzer();
+	// Analyse de l'espace mémoire inutilisé.
+	Analyzer memory_analysis = new Analyzer();
         long before, after;
         // Booléen permettant de savoir si une allocation a été effectuée.
         boolean memory_allocation;
