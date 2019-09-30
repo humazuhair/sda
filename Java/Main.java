@@ -5,13 +5,13 @@ public class Main {
     public static void main(String[] args) {
         int i, time_ind = 0, pop_ind = 0;
         // Tableau dynamique.
-        ArrayListProxy<Integer> a = new ArrayListProxy<Integer>();
+        ArrayList<Integer> a = new ArrayList<Integer>();
         // Analyse du temps pris par les opérations.
         Analyzer time_analysis = new Analyzer();
         // Analyse du nombre de copies faites par les opérations.
         Analyzer copy_analysis = new Analyzer();
-	// Analyse de l'espace mémoire inutilisé.
-	Analyzer memory_analysis = new Analyzer();
+	    // Analyse de l'espace mémoire inutilisé.
+	    Analyzer memory_analysis = new Analyzer();
         long before, after;
         // Booléen permettant de savoir si une allocation a été effectuée.
         boolean memory_allocation;
