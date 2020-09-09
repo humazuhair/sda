@@ -30,7 +30,7 @@ public class Analyzer {
         BigDecimal x_big = new BigDecimal(x);
         cost.add(x);
         cumulative_cost.add( (!cumulative_cost.isEmpty()) ? cumulative_cost.get(cumulative_cost.size()-1).add(x_big) : x_big);
-	BigDecimal x_square = x_big.multiply(x_big);
+    	BigDecimal x_square = x_big.multiply(x_big);
         cumulative_square = cumulative_square.add(x_square);
     }
 

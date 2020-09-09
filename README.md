@@ -1,56 +1,36 @@
-# Compilation et exécution en C:
+# Sujet de TP 1
 
-cd C/
+Vous travaillerez cette année en binôme. Il ne sera pas possible de changer
+de binôme en cours de semestre. 
 
-make
+## Exercice 1: git 
+### Clonez le projet sda sur votre compte étudiant
 
-./arraylist_analysis
+Dans votre terminal, placez vous dans le répertoire où vous souhaitez créer le dossier
+`git clone git@depot.lipn.univ-paris13.fr:david/sda.git`
 
-make clean
+`cd sda` 
 
-cd ..
+### Vérifiez que vous êtes dans la branche tp1
 
-# Compilation et exécution en C++:
+`git branch`
 
-cd CPP/
+Si n'êtes pas dans la branche tp1, tapez
 
-make
+`git checkout tp1`
 
-./arraylist_analysis
+### Créez votre propre branche
 
-make clean
+Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un `_`
 
-cd ..
+`git checkout -b NUMERO1_NUMERO2`
 
-# Compilation et exécution en Java:
+### Ajoutez un fichier AUTHORS.md à votre branche
 
-cd Java
+A la racine du projet, créez un fichier `AUTHORS.md` contenant 2 lignes avec vos noms, prénoms et numéros d'étudiants.
 
-javac *
+Ajoutez ensuite ce fichier au projet
 
-java Main
-
-cd ..
-
-# Exécution en Python
-
-cd Python
-
-python main.py
-
-cd ..
-
-# Observation des résultats
-### Dans le répertoire plots, lisez le contenu du fichier plot_result
-
-cd plots
-more plot_result
-
-### puis lancez ce script avec gnuplot
-
-gnuplot plot_result
-
-### Regardez à présent les courbes obtenus dans le répertoire eps/
-
-gv eps/dynamic_array_amortized_time_alpha_2.eps
-
+`git add AUTHORS.md`
+`git commit -am "Ajout du fichier AUTHORS.md"`
+`git push`

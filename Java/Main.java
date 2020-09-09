@@ -28,8 +28,8 @@ public class Main {
             // Enregistrement du nombre de copies efféctuées par l'opération.
             // S'il y a eu réallocation de mémoire, il a fallu recopier tout le tableau.
             copy_analysis.append( (memory_allocation == true)? i: 1);
-	    // Enregistrement de l'espace mémoire non-utilisé.
-	    memory_analysis.append( a.capacity() - a.size() );
+	        // Enregistrement de l'espace mémoire non-utilisé.
+	        memory_analysis.append( a.capacity() - a.size() );
         }
 
         // Affichage de quelques statistiques sur l'expérience.
@@ -41,6 +41,6 @@ public class Main {
         // Sauvegarde les données de l'expérience: temps et nombre de copies effectuées par opération.
         time_analysis.save_values("../plots/dynamic_array_time_java.plot");
         copy_analysis.save_values("../plots/dynamic_array_copy_java.plot");
-	memory_analysis.save_values("../plots/dynamic_array_memory_java.plot");
+	    memory_analysis.save_values("../plots/dynamic_array_memory_java.plot");
     }
 }
