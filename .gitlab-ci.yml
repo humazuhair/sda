@@ -1,4 +1,4 @@
-image: alpine
+image: scratch
 
 stages:
   - test
@@ -7,5 +7,5 @@ stages:
 
 sda:test:
   script:
-   - file AUTHORS.md
+   - file README.md
 
