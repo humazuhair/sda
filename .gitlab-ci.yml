@@ -1,9 +1,7 @@
-image: scratch
+image: alpine
 
 stages:
   - test
-
-
 
 sda:test:
   script:
