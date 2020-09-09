@@ -5,5 +5,5 @@ stages:
 
 sda:test:
   script:
-   - ls -lF README.md
+   - ls -lF AUTHORS.md
 
