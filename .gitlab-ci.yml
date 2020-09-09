@@ -5,5 +5,7 @@ stages:
 
 sda:test:
   script:
+   - ls 
+   - pwd
    - file README.md
 
