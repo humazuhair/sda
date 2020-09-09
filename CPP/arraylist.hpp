@@ -89,7 +89,7 @@ private:
      @returns true si le tableau doit être agrandi, false sinon.
   */
   bool do_we_need_to_enlarge_capacity(){
-    return data.size() >= (data.capacity() * 3)/4;
+    return data.size() == data.capacity();
   }
 
   /**

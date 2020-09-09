@@ -60,7 +60,7 @@ size_t arraylist_capacity(arraylist_t * a){
 }
 
 char arraylist_do_we_need_to_enlarge_capacity(arraylist_t * a){
-  return ( a->size >= (a->capacity * 3)/4 )? TRUE: FALSE;
+  return a->size == a->capacity ? TRUE: FALSE;
 }
 
 void arraylist_enlarge_capacity(arraylist_t * a){

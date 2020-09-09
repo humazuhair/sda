@@ -83,7 +83,7 @@ public class ArrayList<T> {
      @returns true si le tableau doit être agrandi, false sinon.
      */
     private boolean do_we_need_to_enlarge_capacity() {
-        return size >= (capacity * 3)/4;
+        return size == capacity;
     }
 
     /**

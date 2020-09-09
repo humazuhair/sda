@@ -41,12 +41,16 @@ python main.py
 cd ..
 
 # Observation des résultats
-### Dans le répertoire courant, lisez le contenu du fichier plot_result
+### Dans le répertoire plots, lisez le contenu du fichier plot_result
 
+cd plots
 more plot_result
 
-### puis lancez gnuplot
+### puis lancez ce script avec gnuplot
 
-gnuplot
+gnuplot plot_result
 
-### puis copiez le contenu du fichier plot_result dans gnuplot (3 lignes, une par une)
+### Regardez à présent les courbes obtenus dans le répertoire eps/
+
+gv eps/dynamic_array_amortized_time_alpha_2.eps
+

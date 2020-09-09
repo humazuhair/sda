@@ -1,6 +1,15 @@
 */*~
-
+Python/__pycache__/*
 Sujets/*.tex
 Sujets/*.aux
 Sujets/*.bak
 Sujets/*.log
+Sujets/*.ods
+
+Corrections/*
+
+Java/*.class
+Java/.idea
+
+plots/plot_files/*
+plots/png/*

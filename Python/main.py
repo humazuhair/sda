@@ -5,7 +5,7 @@ from arraylist import ArrayListProxy
 from analyzer import Analyzer
 
 # Tableau dynamique.
-a = ArrayListProxy()
+a = []
 # Analyse du temps pris par les operations.
 time_analysis = Analyzer();
 
