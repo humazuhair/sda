@@ -25,12 +25,15 @@ Le nom de votre branche est constitué de vos numéros d'étudiants séparés pa
 
 `git checkout -b NUMERO1_NUMERO2`
 
-### Ajoutez un fichier AUTHORS.md à votre branche
+### Ajoutez un fichier `AUTHORS.md` à votre branche
 
 A la racine du projet, créez un fichier `AUTHORS.md` contenant 2 lignes avec vos noms, prénoms et numéros d'étudiants.
 
 Ajoutez ensuite ce fichier au projet
 
 `git add AUTHORS.md`
+
 `git commit -am "Ajout du fichier AUTHORS.md"`
+
+### Poussez votre branche sur gitlab
 `git push`
