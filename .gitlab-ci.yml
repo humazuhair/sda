@@ -5,7 +5,7 @@ stages:
 
 
 
-sda:test
+sda:test:
   script:
    - file AUTHORS.md
 
