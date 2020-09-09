@@ -48,8 +48,8 @@ public:
     bool memory_reduction = false;
     if(!data.empty()){
       if( do_we_need_to_reduce_capacity() ){
-	memory_reduction = true;
-	reduce_capacity();
+	      memory_reduction = true;
+	      reduce_capacity();
       }
       data.pop_back();
     }
