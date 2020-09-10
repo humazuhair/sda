@@ -1,4 +1,4 @@
-# Sujet de TP 2: Benchmarks optimisation
+# Sujet de TP 3: Tas Binaire
 
 ## Règles pour ce semestre
 
@@ -15,42 +15,51 @@ rendre le TP si vous ne finissez pas à temps) via gitlab.
 
 Vos travaux seront évalués une fois à mi-semestre et une fois à la fin du semestre.
 
-## Exercice 1: Optimisation de la structure, en faisant uniquement des ajouts.
+## Exercice 1: Tas binaire borné
 
 Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un _
 
-`git checkout -b tp2_NUMERO1_NUMERO2`
+`git checkout -b tp3_NUMERO1_NUMERO2`
 
 Rajouter le fichier `AUTHORS.md` avec vos noms, prénoms et numéros d'étudiants.
 
-Dans le langage de votre choix, effectuez un benchmark permettant
-d'identifier la valeur de `alpha` qui permet d'otenir le plus petit temps amorti 
-pour l'ajout d'une valeur dans le tableau dynamique.
-
-Vous produirez des fichiers pdf sur lequel toutes les courbes de toutes vos experiences
-apparaîtront. Le nom des fichiers terminera par `alpha_bench.pdf`.
-
-
-## Exercice 2: ajout et suppression
-
-Créer second programme (avec une nouvelle fonction `main` donc), dans lequel vous reproduirez
-l'expérience précédente, avec une modification: au lieu d'ajouter un élément dans la table à chaque itération,
-vous ajouterez l'élément `i` avec une probabilité `p` et vous supprimerez le dernier élément du tableau
-avec une probabilité `1-p`.
-
-Dans vos expériences, vous fixerez `alpha` à `1.5` et ferez varier `p`.
-Le nom des fichiers pdf terminera par `alpha_1.5_p_bench.pdf`.
+Développez une structure/classe de tas binaire dans laquelle le tableau servant
+à stocker les clés est de taille fixe. Cette taille est fixée à la création du tas. Si
+l’utilisateur tente d’ajouter une valeur dans un tas plein, un programme en C
+affichera une erreur et un programme en C++, Python ou Java jettera une exception. La
+structure de tas permettra au moins d’ajouter une clé, et d’extraire la plus petite
+clé contenu dans le tas.
+Pour chaque opération, on veut pouvoir récupérer le nombre d'échanges que la fonction a effectué.
 
 
-## Exercice 3: Au rapport
+## Exercice 2: Benchmark
+
+Effectuez des expériences sur l’efficacité en temps et en mémoire de cette structure :
+
+- dans le cas où l’on ne fait qu’ajouter des clés dans l’ordre croissant,
+- dans le cas où l’on ne fait qu’ajouter des clés dans l’ordre décroissant,
+- dans le cas où l’on ne fait qu’ajouter des clés aléatoires.
+
+Inspirez vous des expériences menées sur les tableaux dynamiques. Attention, pour
+chaque expérience, vous devez impérativement écrire de nouvelles fonctions `main`
+dans de nouveaux fichiers et sauvegarder les différents fichiers `pdf` que vous ob-
+tenez grâce à vous expériences. 
+
+Les noms des fichiers pdf seront de la forme `fixed_binary_heap_MESURE_LANGAGE_ORDRE.pdf`
+
+### Exemple:
+
+Pour la mesure du temps amorti de l'ajout d'un élément dans l'ordre croissant en `C`,
+le fichier de sortie sera `fixed_binary_heap_amortized_time_C_INCREASING.pdf`
+
+On a donc:
+- MESURE peut valoir \{ amortized_time, wasted_memory, swap \}. 
+- LANGAGE peut valoir \{ C, CPP, Java, Python\}
+- ORDRE peut valoir \{ increasing, descrasing, random\}
+
+## Exercice 3: 
 
 Commentez le resultat de vos expériences dans un fichier `RAPPORT.md`
-
-1) Dans l'exercice 1, quel est l'alpha le plus efficace en temps? Est-il également le plus efficace 
-en terme de mémoire gaspillée? Quel est le lien entre temps gagné et mémoire gaspillée?
-
-2) Dans l'exercice 2, commentez les différents benchmarks quand `p=0.5`, `p < 0.5` et `p > 0.5`
-Tentez d'expliquer ces différents résultats.
 
 
 A RENDRE AVANT DIMANCHE!

@@ -7,9 +7,10 @@ sda:test:
   script:
    - echo "Exercice 1"
    - ls -lF AUTHORS.md
-   - ls -lF plots/*_alpha_bench.pdf
    - echo "Exercice 2"
-   - ls -lF plots/*_alpha_1.5_p_bench.pdf
+   - ls -lF plots/fixed_binary_heap_*_increasing.pdf
+   - ls -lF plots/fixed_binary_heap_*_decreasing.pdf
+   - ls -lF plots/fixed_binary_heap_*_random.pdf
    - echo "Exercice 3"
    - ls -lF RAPPORT.md
    
