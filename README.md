@@ -115,3 +115,4 @@ Imaginez un scénario dans lequel cela pourrait poser problème.
 3) Décrivez les différences obtenues en faisant varier alpha dans les deux expériences.
 
 A FINIR AVANT DIMANCHE !
+Votre travail n'est validé que si le pipeline réussi.
