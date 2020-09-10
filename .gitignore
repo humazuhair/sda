@@ -2,6 +2,9 @@
 Python/__pycache__/*
 Sujets/*
 
+CPP/src/*
+CPP/include/*
+
 Corrections/*
 
 Java/*.class
