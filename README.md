@@ -1,4 +1,3 @@
-2
 # Sujet de TP 1: Gitlab, Benchmarks et tableaux dynamiques
 
 ## Règles pour ce semestre
