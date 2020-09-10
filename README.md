@@ -87,6 +87,7 @@ Dans le langage de votre choix (C, C++, JAVA, pas possible en Python), modifiez 
 afin de multiplier la capacité du tableaux par une autre constante `alpha` que 2 (Demandez à votre chargé de TP
 de choisir une constante alpha pour votre binôme).
 
+Ajouter une ligne au début du fichier AUTHORS.md contenant la valeur de alpha (et uniquement cette valeur).
 
 Dans la fonction `main`, changez le nom de fichiers de sortie en ramplaçant `alpha_2` par `alpha_votre_valeur`
 

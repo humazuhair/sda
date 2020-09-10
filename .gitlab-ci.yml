@@ -8,10 +8,10 @@ sda:test:
    - echo "Exercice 1"
    - ls -lF AUTHORS.md
    - echo "Exercice 2"
-#   - ls -lF plots/*_alpha_2.pdf
+   - ls -lF plots/*_alpha_2.pdf
    - echo "Exercice 3"
- #  - ls -lF plots/my_plot_result
- #  - grep my_plot_result launch_analysis.sh
+   - ls -lF plots/my_plot_result
+   - grep my_plot_result launch_analysis.sh
    - ALPHA=$(head -n 1 AUTHORS.md)
    - echo "ALPHA ${ALPHA}"
    - ls -lF plots/*_alpha_${TEST}.pdf
