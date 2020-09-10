@@ -20,9 +20,13 @@ Vos travaux seront évalués une fois à mi-semestre et une fois à la fin du se
 
 Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un _
 
+### Pour conserver les données du tp3 et récupérer le tp4
+Placez vous dans votre branche du tp3.
+`git checkout tp3_NUMERO1_NUMERO2`
+Créez la branche du tp4 à partir de celle du tp3.
 `git checkout -b tp4_NUMERO1_NUMERO2`
-
-Rajouter le fichier `AUTHORS.md` avec vos noms, prénoms et numéros d'étudiants.
+Fusionnez cette nouvelle branche avec le tp4
+`git merge -Xtheirs tp4`
 
 Modifier la strcture de tas pour pouvoir extraire la clé de plus petite valeur.
 On voudra connaître le nombre d'échanges effectués par cette opération.
