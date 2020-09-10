@@ -5,5 +5,16 @@ stages:
 
 sda:test:
   script:
+   - echo "Exercice 1"
    - ls -lF AUTHORS.md
+   - echo "Exercice 2"
+   - ls -lF plots/dynamic_array_amortized_time_alpha_2.pdf
+   - ls -lF plots/dynamic_array_wasted_memory_alpha_2.pdf
+   - ls -lF plots/dynamic_array_copy_alpha_2.pdf
+   - echo "Exercice 3"
+   - ls -lF plots/my_plot_result
+   - grep my_plot_result launch_analysis.sh
+   - echo "Exercice 4"
+   - ls -lF RAPPORT.md
+   
 

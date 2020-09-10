@@ -1,10 +1,6 @@
 */*~
 Python/__pycache__/*
-Sujets/*.tex
-Sujets/*.aux
-Sujets/*.bak
-Sujets/*.log
-Sujets/*.ods
+Sujets/*
 
 Corrections/*
 
