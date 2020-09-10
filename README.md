@@ -27,8 +27,7 @@ Développez une structure/classe de tas binaire dans laquelle le tableau servant
 à stocker les clés est de taille fixe. Cette taille est fixée à la création du tas. Si
 l’utilisateur tente d’ajouter une valeur dans un tas plein, un programme en C
 affichera une erreur et un programme en C++, Python ou Java jettera une exception. La
-structure de tas permettra au moins d’ajouter une clé, et d’extraire la plus petite
-clé contenu dans le tas.
+structure de tas ne permettra pour l'instant que d’ajouter des clés.
 Pour chaque opération, on veut pouvoir récupérer le nombre d'échanges que la fonction a effectué.
 
 
