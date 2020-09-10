@@ -8,10 +8,10 @@ sda:test:
    - echo "Exercice 1"
    - ls -lF AUTHORS.md
    - echo "Exercice 2"
-   - ls -lF plots/fixed_binary_heap_*_increasing.pdf
-   - ls -lF plots/fixed_binary_heap_*_decreasing.pdf
-   - ls -lF plots/fixed_binary_heap_*_random.pdf
+   - ls -lF plots/fixed_binary_heap_extract_*.pdf
    - echo "Exercice 3"
+   - ls -lF plots/dynamic_binary_heap_*.pdf
+   - echo "Exercice 4"
    - ls -lF RAPPORT.md
    
 

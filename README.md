@@ -1,4 +1,4 @@
-# Sujet de TP 3: Tas Binaire
+# Sujet de TP 4: Tas Binaire, suite
 
 ## Règles pour ce semestre
 
@@ -15,51 +15,44 @@ rendre le TP si vous ne finissez pas à temps) via gitlab.
 
 Vos travaux seront évalués une fois à mi-semestre et une fois à la fin du semestre.
 
-## Exercice 1: Tas binaire borné
+## Exercice 1: Tas binaire avec extraction
+
 
 Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un _
 
-`git checkout -b tp3_NUMERO1_NUMERO2`
+`git checkout -b tp4_NUMERO1_NUMERO2`
 
 Rajouter le fichier `AUTHORS.md` avec vos noms, prénoms et numéros d'étudiants.
 
-Développez une structure/classe de tas binaire dans laquelle le tableau servant
-à stocker les clés est de taille fixe. Cette taille est fixée à la création du tas. Si
-l’utilisateur tente d’ajouter une valeur dans un tas plein, un programme en C
-affichera une erreur et un programme en C++, Python ou Java jettera une exception. La
-structure de tas permettra au moins d’ajouter une clé, et d’extraire la plus petite
-clé contenu dans le tas.
-Pour chaque opération, on veut pouvoir récupérer le nombre d'échanges que la fonction a effectué.
-
+Modifier la strcture de tas pour pouvoir extraire la clé de plus petite valeur.
+On voudra connaître le nombre d'échanges effectués par cette opération.
 
 ## Exercice 2: Benchmark
 
 Effectuez des expériences sur l’efficacité en temps et en mémoire de cette structure :
 
-- dans le cas où l’on ne fait qu’ajouter des clés dans l’ordre croissant,
-- dans le cas où l’on ne fait qu’ajouter des clés dans l’ordre décroissant,
-- dans le cas où l’on ne fait qu’ajouter des clés aléatoires.
+- dans le cas où l'on ajoute une valeur aléatoire avec un probabilité `p` et on extrait
+la clé de valeur minimale avec probabilité `1-p`.
 
-Inspirez vous des expériences menées sur les tableaux dynamiques. Attention, pour
-chaque expérience, vous devez impérativement écrire de nouvelles fonctions `main`
-dans de nouveaux fichiers et sauvegarder les différents fichiers `pdf` que vous ob-
-tenez grâce à vous expériences. 
+Les noms des fichiers pdf seront de la forme `fixed_binary_heap_extract_MESURE_LANGAGE.pdf`
 
-Les noms des fichiers pdf seront de la forme `fixed_binary_heap_MESURE_LANGAGE_ORDRE.pdf`
+## Exercice 3: Tas binaire dynamique
 
-### Exemple:
+Modifier la structure de tas binaire en remplacant le tableau de taille fixe par un tableau dynamique.
 
-Pour la mesure du temps amorti de l'ajout d'un élément dans l'ordre croissant en `C`,
-le fichier de sortie sera `fixed_binary_heap_amortized_time_C_INCREASING.pdf`
+Relancer toutes les expériences faites sur les tas binaires de taille fixe sur les tas binaires dynamiques.
 
-On a donc:
-- MESURE peut valoir \{ amortized_time, wasted_memory, swap \}. 
-- LANGAGE peut valoir \{ C, CPP, Java, Python\}
-- ORDRE peut valoir \{ increasing, descrasing, random\}
+Vous devez impérativement créer un programme distinct pour chaque expérience.
 
-## Exercice 3: 
+Le nom des fichiers `pdf` commencera par `dynamic_binary_heap_*`
+
+## Exercice 4:  
 
 Commentez le resultat de vos expériences dans un fichier `RAPPORT.md`
 
+- Que se passe t-il lorsque l'on ajoute des opérations de suppression? En temps? En mémoire?
+
+- La complexité amortie des opérations d’ajout et de suppression/extraction a t-elle changé sur les expériences
+utilisant un tableau dynamique ? Pourquoi ?
 
 A RENDRE AVANT DIMANCHE!
