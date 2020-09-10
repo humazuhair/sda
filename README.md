@@ -22,10 +22,15 @@ Le nom de votre branche est constitué de vos numéros d'étudiants séparés pa
 
 ### Pour conserver les données du tp3 et récupérer le tp4
 Placez vous dans votre branche du tp3.
+
 `git checkout tp3_NUMERO1_NUMERO2`
+
 Créez la branche du tp4 à partir de celle du tp3.
+
 `git checkout -b tp4_NUMERO1_NUMERO2`
+
 Fusionnez cette nouvelle branche avec le tp4
+
 `git merge -Xtheirs tp4`
 
 Modifier la strcture de tas pour pouvoir extraire la clé de plus petite valeur.
