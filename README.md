@@ -15,17 +15,18 @@ rendre le TP si vous ne finissez pas à temps) via gitlab.
 
 Vos travaux seront évalués une fois à mi-semestre et une fois à la fin du semestre.
 
-## Exercice 1: Tas binomial
+## Exercice 1: Tas binomial, Benchmarks
 
-Développez une structure/classe de tas binomial.
-
-Les trois opérations que l’on attend de vous au minimum sont la fusion de deux tas, l’ajout d’une clé et l’extraction de la plus petite clé.
-
-Vous fournirez un programme permettant de tester ces trois opérations.
+Effectuez des expériences sur l’efficacité en temps et en mémoire de cette structure.
+Dans un premier temps, vous ferez uniquement des ajouts dans le tas, puis des
+ajouts et des suppressions. Enfin vous imaginerez une expérience permettant de
+tester l’ajout et la suppression de clés dans plusieurs tas et, dans de rares moments,
+vous fusionnerez deux tas. Commentez ces expériences.
 
 ## Exercice 2: Rapport
 
-Détaillez vos choix d’implantation dans un fichier `RAPPORT.md`
+Détaillez vos choix pour vos expériences et 
+commentez les résultats obtenus dans un fichier `RAPPORT.md`
 
 
 A RENDRE AVANT DIMANCHE!
