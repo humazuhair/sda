@@ -1,4 +1,4 @@
-# Sujet de TP 1: Gitlab, Benchmarks et tableaux dynamiques
+# Sujet de TP 2: Benchmarks optimisation
 
 ## Règles pour ce semestre
 
@@ -15,104 +15,42 @@ rendre le TP si vous ne finissez pas à temps) via gitlab.
 
 Vos travaux seront évalués une fois à mi-semestre et une fois à la fin du semestre.
 
-## Exercice 1: git 
-### Clonez le projet sda sur votre compte étudiant
+## Exercice 1: Optimisation de la structure, en faisant uniquement des ajouts.
 
-Dans votre terminal, placez vous dans le répertoire où vous souhaitez créer le dossier
-`git clone git@depot.lipn.univ-paris13.fr:david/sda.git`
+Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un _
 
-`cd sda` 
+`git checkout -b tp2_NUMERO1_NUMERO2`
 
-### Vérifiez que vous êtes dans la branche tp1
+Rajouter le fichier `AUTHORS.md` avec vos noms, prénoms et numéros d'étudiants.
 
-`git branch`
+Dans le langage de votre choix, effectuez un benchmark permettant
+d'identifier la valeur de `alpha` qui permet d'otenir le plus petit temps amorti 
+pour l'ajout d'une valeur dans le tableau dynamique.
 
-Si n'êtes pas dans la branche tp1, tapez
-
-`git checkout tp1`
-
-### Créez votre propre branche
-
-Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un `_`
-
-`git checkout -b NUMERO1_NUMERO2`
-
-### Ajoutez un fichier `AUTHORS.md` à votre branche
-
-A la racine du projet, créez un fichier `AUTHORS.md` contenant 2 lignes avec vos noms, prénoms et numéros d'étudiants.
-
-Ajoutez ensuite ce fichier au projet
-
-`git add AUTHORS.md`
-
-`git commit -am "Ajout du fichier AUTHORS.md"`
-
-### Poussez votre branche sur gitlab
-`git push`
-
-### Vérifiez sur gitlab
-
-Sur la page de gitlab:
-- vérifiez que la branche a été poussée dans `Repository -> Branches`
-- vérifiez que le pipeline a échoué (car vous n'avez pas encore fini le TP), dans `CI/CD -> Pipelines`
-- cliquez sur `failed` pour voir le détail des tests effectués
+Vous produirez des fichiers pdf sur lequel toutes les courbes de toutes vos experiences
+apparaîtront. Le nom des fichiers terminera par `alpha_bench.pdf`.
 
 
-## Exercice 2: Lancer les benchmarks
+## Exercice 2: ajout et suppression
 
-Vérifiez que le répertoire `plots` ne contient que le fichier `plot_result`.
+Créer second programme (avec une nouvelle fonction `main` donc), dans lequel vous reproduirez
+l'expérience précédente, avec une modification: au lieu d'ajouter un élément dans la table à chaque itération,
+vous ajouterez l'élément `i` avec une probabilité `p` et vous supprimerez le dernier élément du tableau
+avec une probabilité `1-p`.
 
-Nous allons à présent tester différentes implémentations des tableaux dynamiques dans différents langages.
+Dans vos expériences, vous fixerez `alpha` à `1.5` et ferez varier `p`.
+Le nom des fichiers pdf terminera par `alpha_1.5_p_bench.pdf`.
 
-Lisez les fichiers `main` de chaque langage et vérifiez que la même expérience est bien effectuée à chaque fois.  
 
-Exécutez le script `SHELL` (le lire ne vous fera pas de mal non plus):
+## Exercice 3: Au rapport
 
-`sh launch_analysis.sh`
+Commentez le resultat de vos expériences dans un fichier `RAPPORT.md`
 
-Une fois les calculs effectués, regardez les fichiers `pdf` obtenus dans le répertoire `plots`
+1) Dans l'exercice 1, quel est l'alpha le plus efficace en temps? Est-il également le plus efficace 
+en terme de mémoire gaspillée? Quel est le lien entre temps gagné et mémoire gaspillée?
 
-Ajoutez tous les fichiers pdf obtenus à votre branche en utilisant les commandes 
+2) Dans l'exercice 2, commentez les différents benchmarks quand `p=0.5`, `p < 0.5` et `p > 0.5`
+Tentez d'expliquer ces différents résultats.
 
-`git add plots/*.pdf`
 
-`git commit -am "Première expérience"`
-
-`git push`
-
-## Exercice 3: A vous de jouer!
-
-Dans le langage de votre choix (C, C++, JAVA, pas possible en Python), modifiez la fonction `enlarge_capacity` 
-afin de multiplier la capacité du tableaux par une autre constante `alpha` que 2 (Demandez à votre chargé de TP
-de choisir une constante alpha pour votre binôme).
-
-Ajouter une ligne au début du fichier AUTHORS.md contenant la valeur de alpha (et uniquement cette valeur).
-
-Dans la fonction `main`, changez le nom de fichiers de sortie en ramplaçant `alpha_2` par `alpha_votre_valeur`
-
-Dans le répertoire `plots`, faites une copie du fichier `plot_result`
-
-`cp plot_result my_plot_result`
-
-Modifiez le fichier `my_plot_result` pour ne fournir que des courbes dans le langage que vous avez choisi.
-Modifiez également le nom des fichiers pdf en sortie afin qu'ils contiennent la bonne valeur de alpha.
-
-Modifiez le fichier `launch_analysis.sh` afin qu'il exécute gnuplot à partir de `my_plot_result`
-
-Relancez le script `launch_analysis.sh`
-
-Ajoutez les résultats (fichiers pdf) à votre branche.
-
-## Exercice 4: Au rapport!
-
-Créez un fichier RAPPORT.md à la racine projet.
-
-1) Tentez d'expliquer pourquoi certains langages sont plus rapides que d'autres dans cette expérience.
-
-2) Observez l'espace mémoire inutilisé au fur et à mesure du programme. Qu'en pensez vous? 
-Imaginez un scénario dans lequel cela pourrait poser problème.
-
-3) Décrivez les différences obtenues en faisant varier alpha dans les deux expériences.
-
-A FINIR AVANT DIMANCHE !
-Votre travail n'est validé que si le pipeline réussi.
+A RENDRE AVANT DIMANCHE!
