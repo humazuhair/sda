@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 import math
 
 #  Classe utilisee pour faire des statistiques elementaires

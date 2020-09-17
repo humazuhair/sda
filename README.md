@@ -35,7 +35,7 @@ Si n'êtes pas dans la branche tp1, tapez
 
 Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un `_`
 
-`git checkout -b NUMERO1_NUMERO2`
+`git checkout -b tp1_NUMERO1_NUMERO2`
 
 ### Ajoutez un fichier `AUTHORS.md` à votre branche
 
@@ -48,7 +48,7 @@ Ajoutez ensuite ce fichier au projet
 `git commit -am "Ajout du fichier AUTHORS.md"`
 
 ### Poussez votre branche sur gitlab
-`git push`
+`git push -u origin tp1_NUMERO1_NUMERO2`
 
 ### Vérifiez sur gitlab
 

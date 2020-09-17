@@ -39,8 +39,8 @@ public class Main {
         System.err.println("Standard deviation :"+time_analysis.get_standard_deviation());
 
         // Sauvegarde les données de l'expérience: temps et nombre de copies effectuées par opération.
-        time_analysis.save_values("../plots/dynamic_array_time_java.plot");
-        copy_analysis.save_values("../plots/dynamic_array_copy_java.plot");
-	    memory_analysis.save_values("../plots/dynamic_array_memory_java.plot");
+        time_analysis.save_values("../plots/dynamic_array_time_java_alpha_2.plot");
+        copy_analysis.save_values("../plots/dynamic_array_copy_java_alpha_2.plot");
+	    memory_analysis.save_values("../plots/dynamic_array_memory_java_alpha_2.plot");
     }
 }
