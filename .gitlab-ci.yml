@@ -14,7 +14,7 @@ sda:test:
    - grep my_plot_result launch_analysis.sh
    - ALPHA=$(head -n 1 AUTHORS.md)
    - echo "ALPHA ${ALPHA}"
-   - ls -lF plots/*_alpha_${TEST}.pdf
+   - ls -lF plots/*_alpha_${ALPHA}.pdf
    - echo "Exercice 4"
    - ls -lF RAPPORT.md
    
