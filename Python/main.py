@@ -50,7 +50,7 @@ sys.stderr.write("Variance :" + str(time_analysis.get_variance())+"\n")
 sys.stderr.write("Standard deviation :" + str(time_analysis.get_standard_deviation())+"\n")
 
 # Sauvegarde les donnees de l'experience.
-time_analysis.save_values("../plots/dynamic_array_time_python_2.plot")
-memory_analysis.save_values("../plots/dynamic_array_memory_python_2.plot")
-copy_analysis.save_values("../plots/dynamic_array_copy_python_2.plot")
+time_analysis.save_values("../plots/dynamic_array_time_python_alpha_2.plot")
+memory_analysis.save_values("../plots/dynamic_array_memory_python_alpha_2.plot")
+copy_analysis.save_values("../plots/dynamic_array_copy_python_alpha_2.plot")
 
