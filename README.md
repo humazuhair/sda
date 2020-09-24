@@ -17,9 +17,12 @@ Vos travaux seront évalués une fois à mi-semestre et une fois à la fin du se
 
 ## Exercice 1: git 
 ### Clonez le projet sda sur votre compte étudiant
+Dans votre terminal, commencez par la configuration de votre utilisateur git:
+git config --global user.name "NOM_PRENOM"
+(le reste du TP peut se faire à partir de n'importe quelle session)
 
 Dans votre terminal, placez vous dans le répertoire où vous souhaitez créer le dossier
-`git clone git@depot.lipn.univ-paris13.fr:david/sda.git`
+`git clone https://depot.lipn.univ-paris13.fr/tomeh/sda.git`
 
 `cd sda` 
 
@@ -49,6 +52,10 @@ Ajoutez ensuite ce fichier au projet
 
 ### Poussez votre branche sur gitlab
 `git push -u origin tp1_NUMERO1_NUMERO2`
+
+`Username for 'https://depot.lipn.univ-paris13.fr': tp_sda`
+
+`Password for 'https://tp_sda@depot.lipn.univ-paris13.fr': [demander à votre chargé de TP]`
 
 ### Vérifiez sur gitlab
 
