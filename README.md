@@ -19,6 +19,8 @@ Vos travaux seront évalués une fois à mi-semestre et une fois à la fin du se
 
 Le nom de votre branche est constitué de vos numéros d'étudiants séparés par un _
 
+`git checkout tp2`
+
 `git checkout -b tp2_NUMERO1_NUMERO2`
 
 Rajouter le fichier `AUTHORS.md` avec vos noms, prénoms et numéros d'étudiants.
