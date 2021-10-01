@@ -63,6 +63,6 @@ more plot_result
 
 ### puis lancez ce script avec gnuplot
 
-gnuplot plot_result
+gnuplot my_plot_result
 
 

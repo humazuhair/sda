@@ -44,9 +44,9 @@ int main(int argc, char ** argv){
   fprintf(stderr, "Standard deviation: %Lf\n", get_standard_deviation(time_analysis));
 
   // Sauvegarde les données de l'expérience.
-  save_values(time_analysis, "../plots/dynamic_array_time_c_alpha_2.plot");
-  save_values(copy_analysis, "../plots/dynamic_array_copy_c_alpha_2.plot");
-  save_values(memory_analysis, "../plots/dynamic_array_memory_c_alpha_2.plot");
+  save_values(time_analysis, "../plots/dynamic_array_time_c_alpha_1.5.plot");
+  save_values(copy_analysis, "../plots/dynamic_array_copy_c_alpha_1.5.plot");
+  save_values(memory_analysis, "../plots/dynamic_array_memory_c_alpha_1.5.plot");
 
   // Nettoyage de la mémoire avant la sortie du programme
   arraylist_destroy(a);
