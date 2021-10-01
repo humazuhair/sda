@@ -14,12 +14,12 @@ int main(int argc, char ** argv){
   // Analyse du nombre de copies faites par les opérations.
   analyzer_t * copy_analysis = analyzer_create();
   // Analyse de l'espace mémoire inutilisé.
-  analyzer_t * memory_analysis = analyzer_create(); 
+  analyzer_t * memory_analysis = analyzer_create();
   // Mesure de la durée d'une opération.
   struct timespec before, after;
   clockid_t clk_id = CLOCK_REALTIME;
   // utilisé comme booléen pour savoir si une allocation a été effectuée.
-  char memory_allocation; 
+  char memory_allocation;
 
   for(i = 0; i < 1000000 ; i++){
     // Ajout d'un élément et mesure du temps pris par l'opération.
@@ -27,7 +27,7 @@ int main(int argc, char ** argv){
     memory_allocation = arraylist_append(a, i);
     clock_gettime(clk_id, &after);
 
-    
+
     // Enregistrement du temps pris par l'opération
     analyzer_append(time_analysis, after.tv_nsec - before.tv_nsec);
     // Enregistrement du nombre de copies efféctuées par l'opération.
@@ -44,9 +44,9 @@ int main(int argc, char ** argv){
   fprintf(stderr, "Standard deviation: %Lf\n", get_standard_deviation(time_analysis));
 
   // Sauvegarde les données de l'expérience.
-  save_values(time_analysis, "../plots/dynamic_array_time_c_alpha_2.plot");
-  save_values(copy_analysis, "../plots/dynamic_array_copy_c_alpha_2.plot");
-  save_values(memory_analysis, "../plots/dynamic_array_memory_c_alpha_2.plot");
+  save_values(time_analysis, "../plots/dynamic_array_time_c_alpha_3.plot");
+  save_values(copy_analysis, "../plots/dynamic_array_copy_c_alpha_3.plot");
+  save_values(memory_analysis, "../plots/dynamic_array_memory_c_alpha_3.plot");
 
   // Nettoyage de la mémoire avant la sortie du programme
   arraylist_destroy(a);
