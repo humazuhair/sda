@@ -1,4 +1,4 @@
 OURTIRANE Kenza
 12112270
-4
+alpha = 4
 
