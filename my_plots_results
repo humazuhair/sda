@@ -8,11 +8,10 @@ set xlabel "Nombre d'elements ajoutes" font "Helvetica,24"
 ##############################################################
 ###########  Affichage des temps de calcul amortis ###########
 ##############################################################
-# Titre de l'axe des ordonnées
-set ylabel "Temps amorti" font "Helvetica,24"
+
 
 # Nom du fichier Postscript en sortie
-set output 'dynamic_array_amortized_time_alpha_2.pdf' 
+set output 'dynamic_array_amortized_time_alpha_4.pdf' 
 
 plot [0:1000000][0:600] 'dynamic_array_time_c_alpha_2.plot' using 1:3 w lines title "Amortized C", 'dynamic_array_time_cpp_alpha_2.plot' using 1:3 w lines title "Amortized C++", 'dynamic_array_time_java_alpha_2.plot' using 1:3 w lines title "Amortized JAVA", 'dynamic_array_time_python_alpha_2.plot' using 1:3 w lines title "Amortized Python"
 
