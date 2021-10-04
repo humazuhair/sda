@@ -96,7 +96,7 @@ private:
      Cette fonction augmente la capacité du tableau.
   */
   void enlarge_capacity(){
-    data.reserve( data.capacity() *2 );
+    data.reserve( data.capacity() *3 );
   }
 
   /**

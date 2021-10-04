@@ -64,7 +64,7 @@ char arraylist_do_we_need_to_enlarge_capacity(arraylist_t * a){
 }
 
 void arraylist_enlarge_capacity(arraylist_t * a){
-  a->capacity *= 2;
+  a->capacity *= 3;
   a->data = (int *) realloc(a->data, sizeof(int) * a->capacity);
 }
 
