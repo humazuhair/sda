@@ -90,7 +90,7 @@ public class ArrayList<T> {
        Cette fonction augmente la capacité du tableau.
     */
     private void enlarge_capacity(){
-      capacity *= 2;
+      capacity *= 4;
       data = java.util.Arrays.copyOf(data, capacity);
     }
 
