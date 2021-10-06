@@ -45,9 +45,9 @@ int main(int argc, char ** argv){
   std::cerr<<"Standard deviation :"<<time_analysis.get_standard_deviation()<<std::endl;    
 
   // Sauvegarde les données de l'expérience.
-  time_analysis.save_values("../plots/dynamic_array_time_cpp_alpha_2.plot");
-  copy_analysis.save_values("../plots/dynamic_array_copy_cpp_alpha_2.plot");
-  memory_analysis.save_values("../plots/dynamic_array_memory_cpp_alpha_2.plot");
+  time_analysis.save_values("../plots/dynamic_array_time_cpp_alpha_4.5.plot");
+  copy_analysis.save_values("../plots/dynamic_array_copy_cpp_alpha_4.5.plot");
+  memory_analysis.save_values("../plots/dynamic_array_memory_cpp_alpha_4.5.plot");
   
   return 0;
 }

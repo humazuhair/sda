@@ -4,6 +4,8 @@
 #include<iostream>
 #include<vector>
 
+float alpha = 4.5;
+
 /**
    Cette classe est un proxy pour les vecteurs, c'est à dire les tableaux dynamiques en C++.
    On utilise cette classe afin d'avoir le contrôle sur la gestion de la mémoire.
@@ -96,7 +98,7 @@ private:
      Cette fonction augmente la capacité du tableau.
   */
   void enlarge_capacity(){
-    data.reserve( data.capacity() *2 );
+    data.reserve( data.capacity() *alpha );
   }
 
   /**
